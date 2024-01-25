@@ -1,0 +1,87 @@
+import java.util.Arrays;
+
+public class Etudiant {
+    int id;
+    String nom;
+    String email;
+    Note[] notes;
+    public Etudiant(int id, String nom, String email, Note[] notes) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+        this.notes = new Note[10];
+
+
+    }
+    @Override
+    public String toString() {
+        return "Etudiant{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", email='" + email + '\'' +
+                ", notes=" + Arrays.toString(notes) +
+                '}';
+    }
+
+
+    public class Note {
+        String mat;
+        float note;
+        float coef;
+
+        public Note(String mat, float note, float coef) {
+            this.mat = mat;
+            this.note = note;
+            this.coef = coef;
+        }
+        public String toString() {
+            String str ="";
+            str+= notes[0].toString();
+            str+= notes[1].toString();
+            str+= notes[2].toString();
+            str+= notes[3].toString();
+            str+= notes[4].toString();
+            str+= notes[5].toString();
+            str+= notes[6].toString();
+            str+= notes[7].toString();
+            str+= notes[8].toString();
+            str+= notes[9].toString();
+            return "id=" +id+ "nom=" +nom+ "Liste des notes" +str;
+        }
+    }
+
+    public class Groupe {
+        String nom;
+        Etudiant[] list_etudiant;
+
+        public Groupe(String nom) {
+            this.nom = nom;
+            list_etudiant = new Etudiant[20];
+        }
+        public String toString() {
+            return "nom=" +nom;
+        }
+
+    }
+
+    float getMoy() {
+        int tot=0;
+        for(int i=0; i<10; i++)
+            tot+=notes[i];
+        return tot=tot/10;
+    }
+}
+
+public class Test {
+    public static void main(String[] args){
+        Etudiant e1 = new Etudiant(1, "Ahmed", "ahmed@gmail.com");
+        e1.getMoy();
+
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+    }
+}
